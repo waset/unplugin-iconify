@@ -1,10 +1,16 @@
 import { defineConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
-import Unplugin from '../src/vite'
+/**
+ *  package.json
+ *
+ *  "unplugin-iconify": "workspaces:*",
+ */
+// import Iconify from '../src/vite'
+import Iconify from '@waset/unplugin-iconify/vite'
 
 export default defineConfig({
   plugins: [
     Inspect(),
-    Unplugin(),
+    Iconify(),
   ],
 })
