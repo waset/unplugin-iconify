@@ -1,11 +1,14 @@
 {
-  "name": "unplugin-iconify",
+  "name": "@waset/unplugin-iconify",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "packageManager": "pnpm@9.12.2",
   "description": "",
   "author": "waset <waset@foxmail.com>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "homepage": "https://github.com/waset/unplugin-iconify#readme",
   "repository": {
     "type": "git",
