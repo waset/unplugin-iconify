@@ -1,0 +1,48 @@
+name-template: 🏷 v$RESOLVED_VERSION
+tag-template: v$RESOLVED_VERSION
+categories:
+  - title: 🚀 新特性
+    labels:
+      - enhancement
+  - title: 🐛 修复
+    labels:
+      - bugfix
+  - title: 🧰 维护
+    labels:
+      - maintenance
+      - security
+  - title: 📝 文档
+    labels:
+      - documentation
+  - title: 📦 构建
+    labels:
+      - configuration
+  - title: 🚧 其他
+    labels:
+      - test
+      - other
+change-template: '- $TITLE (#$NUMBER)  @$AUTHOR'
+change-title-escapes: '\<*_`&'
+exclude-contributors:
+  - renovate
+  - renovate[bot]
+  - dependabot
+version-resolver:
+  major:
+    labels:
+      - major
+  minor:
+    labels:
+      - minor
+  patch:
+    labels:
+      - patch
+  default: patch
+template: |
+  ## 更新日志
+
+  $CHANGES
+
+  ## 贡献者
+
+  $CONTRIBUTORS
