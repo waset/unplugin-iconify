@@ -21,7 +21,7 @@ categories:
     labels:
       - test
       - other
-change-template: '- $TITLE (#$NUMBER)  @$AUTHOR\n  - $BODY'
+change-template: '- $TITLE (#$NUMBER)  @$AUTHOR'
 change-title-escapes: '\<*_`&'
 exclude-contributors:
   - renovate
