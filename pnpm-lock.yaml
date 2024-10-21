@@ -71,7 +71,7 @@ importers:
     devDependencies:
       '@waset/unplugin-iconify':
         specifier: latest
-        version: 0.0.1(@farmfe/core@1.3.29)(@nuxt/kit@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(@nuxt/schema@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(esbuild@0.24.0)(rollup@4.24.0)(vite@5.4.9(@types/node@22.7.6)(terser@5.36.0))(webpack-sources@3.2.3)(webpack@5.95.0(esbuild@0.24.0))
+        version: 0.0.2(@farmfe/core@1.3.29)(@nuxt/kit@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(@nuxt/schema@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(esbuild@0.24.0)(rollup@4.24.0)(vite@5.4.9(@types/node@22.7.6)(terser@5.36.0))(webpack-sources@3.2.3)(webpack@5.95.0(esbuild@0.24.0))
       vite:
         specifier: ^5.4.2
         version: 5.4.9(@types/node@22.7.6)(terser@5.36.0)
@@ -1193,8 +1193,8 @@ packages:
   '@vue/shared@3.4.38':
     resolution: {integrity: sha512-q0xCiLkuWWQLzVrecPb0RMsNWyxICOjPrcrwxTUEHb1fsnvni4dcuyG7RT/Ie7VPTvnjzIaWzRMUBsrqNj/hhw==}
 
-  '@waset/unplugin-iconify@0.0.1':
-    resolution: {integrity: sha512-vHuaymoZug+Gc85ibGo9CYJ0IAS5Ct368ABDUZo1GKl3k/OoyLIlc1sS11Q9G5mdtyORVglhIjSWD2g3I2FwPQ==}
+  '@waset/unplugin-iconify@0.0.2':
+    resolution: {integrity: sha512-yDGGbzJxVVPFjtRO8W2GDkN7fdy2BHTR66HkwtCSQUvgEDx/3pzwCd2Mo9yjWvq2pQlz3wQIZCb2eXG9TooWMg==}
     peerDependencies:
       '@farmfe/core': '>=1'
       '@nuxt/kit': ^3
@@ -4922,7 +4922,7 @@ snapshots:
 
   '@vue/shared@3.4.38': {}
 
-  '@waset/unplugin-iconify@0.0.1(@farmfe/core@1.3.29)(@nuxt/kit@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(@nuxt/schema@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(esbuild@0.24.0)(rollup@4.24.0)(vite@5.4.9(@types/node@22.7.6)(terser@5.36.0))(webpack-sources@3.2.3)(webpack@5.95.0(esbuild@0.24.0))':
+  '@waset/unplugin-iconify@0.0.2(@farmfe/core@1.3.29)(@nuxt/kit@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(@nuxt/schema@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(esbuild@0.24.0)(rollup@4.24.0)(vite@5.4.9(@types/node@22.7.6)(terser@5.36.0))(webpack-sources@3.2.3)(webpack@5.95.0(esbuild@0.24.0))':
     dependencies:
       unplugin: 1.14.1(webpack-sources@3.2.3)
     optionalDependencies:
