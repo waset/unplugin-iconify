@@ -11,6 +11,18 @@ import Iconify from '@waset/unplugin-iconify/vite'
 export default defineConfig({
   plugins: [
     Inspect(),
-    Iconify(),
+    Iconify({
+      convert: [
+        {
+          path: './icons',
+          prefix: 'icon',
+          noColor: true,
+        },
+        {
+          path: './icons',
+          prefix: 'icon-color',
+        },
+      ],
+    }) as any,
   ],
 })

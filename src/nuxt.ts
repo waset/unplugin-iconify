@@ -1,4 +1,4 @@
-import type { Options } from './types'
+import type { Options } from './core/types'
 import { addVitePlugin, addWebpackPlugin, defineNuxtModule } from '@nuxt/kit'
 import vite from './vite'
 import webpack from './webpack'
@@ -14,12 +14,10 @@ export default defineNuxtModule<ModuleOptions>({
     configKey: 'Iconify',
   },
   defaults: {
-    // ...default options
+    // default options
   },
   setup(options, _nuxt) {
     addVitePlugin(() => vite(options))
     addWebpackPlugin(() => webpack(options))
-
-    // ...
   },
 })
