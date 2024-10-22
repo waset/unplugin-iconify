@@ -15,8 +15,7 @@ export const unpluginFactory: UnpluginFactory<Options> = options => ({
     }
     else {
       if (!options.convert) {
-        console.error('unplugin-iconify 未正确配置')
-        return
+        throw new Error('unplugin-iconify 未正确配置')
       }
       converts.push(options.convert)
     }
