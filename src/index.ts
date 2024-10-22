@@ -1,14 +1,32 @@
 import type { UnpluginFactory } from 'unplugin'
-import type { Options } from './types'
+import type { Convert, Options } from './core/types'
 import { createUnplugin } from 'unplugin'
+import { Generated } from './core/convert'
 
-export const unpluginFactory: UnpluginFactory<Options | undefined> = options => ({
+export const unpluginFactory: UnpluginFactory<Options> = options => ({
   name: 'unplugin-iconify',
-  transformInclude(id) {
-    return id.endsWith('main.ts')
-  },
-  transform(code) {
-    return code.replace('__UNPLUGIN__', `Hello1 Unplugin! ${options}`)
+  buildStart: async () => {
+    /**
+     * 解析配置
+     */
+    let converts: Convert[] = []
+    if (Array.isArray(options.convert)) {
+      converts = options.convert
+    }
+    else {
+      if (!options.convert) {
+        console.error('unplugin-iconify 未正确配置')
+        return
+      }
+      converts.push(options.convert)
+    }
+    /**
+     * 开始转换
+     */
+    for (const option of converts) {
+      // 转换
+      await Generated(option)
+    }
   },
 })
 
