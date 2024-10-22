@@ -60,7 +60,7 @@ export async function Generated(option: Convert): Promise<void> {
   // 构建 manifest 文件路径
   const srcDir = join(cwd(), out || 'temp/icons')
   if (!existsSync(srcDir)) {
-    mkdirSync(srcDir)
+    mkdirSync(srcDir, { recursive: true })
   }
 
   // Save to file
