@@ -14,6 +14,9 @@ importers:
       esbuild:
         specifier: '*'
         version: 0.23.1
+      jsonc-parser:
+        specifier: ^3.3.1
+        version: 3.3.1
       unplugin:
         specifier: ^1.14.1
         version: 1.14.1(webpack-sources@3.2.3)
@@ -74,7 +77,7 @@ importers:
     devDependencies:
       '@waset/unplugin-iconify':
         specifier: latest
-        version: 0.0.2(@farmfe/core@1.3.29)(@nuxt/kit@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(@nuxt/schema@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(esbuild@0.24.0)(rollup@4.24.0)(vite@5.4.9(@types/node@22.7.8)(terser@5.36.0))(webpack-sources@3.2.3)(webpack@5.95.0(esbuild@0.24.0))
+        version: 0.1.0(@farmfe/core@1.3.29)(@nuxt/kit@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(@nuxt/schema@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(esbuild@0.24.0)(rollup@4.24.0)(vite@5.4.9(@types/node@22.7.8)(terser@5.36.0))(webpack-sources@3.2.3)(webpack@5.95.0(esbuild@0.24.0))
       vite:
         specifier: ^5.4.2
         version: 5.4.9(@types/node@22.7.8)(terser@5.36.0)
@@ -1215,14 +1218,14 @@ packages:
   '@vue/shared@3.4.38':
     resolution: {integrity: sha512-q0xCiLkuWWQLzVrecPb0RMsNWyxICOjPrcrwxTUEHb1fsnvni4dcuyG7RT/Ie7VPTvnjzIaWzRMUBsrqNj/hhw==}
 
-  '@waset/unplugin-iconify@0.0.2':
-    resolution: {integrity: sha512-yDGGbzJxVVPFjtRO8W2GDkN7fdy2BHTR66HkwtCSQUvgEDx/3pzwCd2Mo9yjWvq2pQlz3wQIZCb2eXG9TooWMg==}
+  '@waset/unplugin-iconify@0.1.0':
+    resolution: {integrity: sha512-CiWfr0VCYTH1qtt74vwW5M23RlB7Agse1lUoblGz1aUzAxVl28qlwbLItgvWbruvpeqlF6matFzORxe/rGLUgw==}
     peerDependencies:
       '@farmfe/core': '>=1'
       '@nuxt/kit': ^3
       '@nuxt/schema': ^3
       esbuild: '*'
-      rollup: ^3
+      rollup: ^3 || ^4.0.0
       vite: '>=3'
       webpack: ^4 || ^5
     peerDependenciesMeta:
@@ -5141,7 +5144,7 @@ snapshots:
 
   '@vue/shared@3.4.38': {}
 
-  '@waset/unplugin-iconify@0.0.2(@farmfe/core@1.3.29)(@nuxt/kit@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(@nuxt/schema@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(esbuild@0.24.0)(rollup@4.24.0)(vite@5.4.9(@types/node@22.7.8)(terser@5.36.0))(webpack-sources@3.2.3)(webpack@5.95.0(esbuild@0.24.0))':
+  '@waset/unplugin-iconify@0.1.0(@farmfe/core@1.3.29)(@nuxt/kit@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(@nuxt/schema@3.13.2(rollup@4.24.0)(webpack-sources@3.2.3))(esbuild@0.24.0)(rollup@4.24.0)(vite@5.4.9(@types/node@22.7.8)(terser@5.36.0))(webpack-sources@3.2.3)(webpack@5.95.0(esbuild@0.24.0))':
     dependencies:
       unplugin: 1.14.1(webpack-sources@3.2.3)
     optionalDependencies:
