@@ -8,7 +8,7 @@
 pnpm i -D @waset/unplugin-iconify
 ```
 
-## 配置
+## 使用
 
 ```ts
 Iconify({
@@ -46,13 +46,21 @@ Iconify({
 })
 ```
 
+#### 补充
+
 - 如果开启 `iconifyIntelliSense`将自动创建/更新 `.vscode/settings.json` 文件，用于 VSCode 插件 [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify)
 
 - 请查看 [`src/core/types.ts`](https://github.com/waset/unplugin-iconify/blob/main/src/core/types.ts) 获取更多类型信息。
 
-## 使用
+#### 用例
 
-#### 脚手架
+> 参照上述 `convert` 配置，如果拥有 `assets/icons/cat.svg`,将会生成以下 `iconify` 图标
+
+- `icon-cat` `icon:cat` `i-icon-cat`
+- `svg-cat` `svg:cat` `i-svg-cat`
+- `suffix-cat-color` `suffix:cat-color` `i-suffix-cat-color`
+
+## 配置
 
 <details>
 <summary>Vite</summary>
@@ -119,8 +127,8 @@ export default defineConfig({
 ```
 </details>
 
-## Thanks
+## 感谢
 
 - [unplugin](https://github.com/unjs/unplugin)
 - [unplugin/unplugin-icons](https://github.com/unplugin/unplugin-icons)
-- [unocss](https://github.com/unocss/unocss)
+- [unocss](https://unocss.dev/presets/icons)
