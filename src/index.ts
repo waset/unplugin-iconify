@@ -1,30 +1,31 @@
 import type { UnpluginFactory } from 'unplugin'
-import type { Convert, Options } from './core/types'
+import type { Options } from './core/types'
 import { createUnplugin } from 'unplugin'
-import { Generated } from './core/convert'
+import { Iconify } from './core'
 
 export const unpluginFactory: UnpluginFactory<Options> = options => ({
   name: 'unplugin-iconify',
   buildStart: async () => {
     /**
-     * 解析配置
+     * 初始化
      */
-    let converts: Convert[] = []
-    if (Array.isArray(options.convert)) {
-      converts = options.convert
-    }
-    else {
-      if (!options.convert) {
-        throw new Error('unplugin-iconify 未正确配置')
-      }
-      converts.push(options.convert)
-    }
+    const handle = new Iconify(options)
+
     /**
-     * 开始转换
+     * 转换图标
      */
-    for (const option of converts) {
-      // 转换
-      await Generated(option)
+    await handle.toConvert()
+
+    /**
+     * 加载器加载图标
+     */
+    const _loaders = handle.getLoaders()
+
+    /**
+     * 生成 Iconify IntelliSense 配置
+     */
+    if (options.iconifyIntelliSense) {
+      await handle.toIntelliSense()
     }
   },
 })
@@ -32,3 +33,4 @@ export const unpluginFactory: UnpluginFactory<Options> = options => ({
 export const unplugin = /* #__PURE__ */ createUnplugin(unpluginFactory)
 
 export default unplugin
+export type { Options } from './core/types'

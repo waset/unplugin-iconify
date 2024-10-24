@@ -142,6 +142,7 @@
     "eslint": "^9.12.0",
     "esno": "^4.8.0",
     "fast-glob": "^3.3.2",
+    "jsonc-parser": "^3.3.1",
     "nodemon": "^3.1.7",
     "rollup": "^4.24.0",
     "tsup": "^8.3.0",
