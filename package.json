@@ -140,15 +140,15 @@
     }
   },
   "dependencies": {
+    "@iconify/tools": "^4.0.7",
+    "@types/node": "^22.7.6",
     "jsonc-parser": "^3.3.1",
     "unplugin": "^1.14.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.8.0",
-    "@iconify/tools": "^4.0.7",
     "@nuxt/kit": "^3.13.2",
     "@nuxt/schema": "^3.13.2",
-    "@types/node": "^22.7.6",
     "bumpp": "^9.7.1",
     "chalk": "^5.3.0",
     "eslint": "^9.12.0",
