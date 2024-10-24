@@ -2,38 +2,57 @@
 
 [![NPM version](https://img.shields.io/npm/v/@waset/unplugin-iconify?color=blue)](https://www.npmjs.com/package/@waset/unplugin-iconify)
 
-## Install
+## 安装
 
 ```bash
 pnpm i -D @waset/unplugin-iconify
 ```
 
-## Configuration
+## 配置
 
 ```ts
 Iconify({
+  /**
+   * 图标转换配置
+   */
   convert: {
-    icon: './icons',
+    // 直接导出目录
+    icon: 'assets/icons',
+    // 不导出颜色
     svg: {
-      path: './icons',
+      path: 'assets/icons',
       noColor: true,
     },
+    // 不导出颜色且添加后缀
     suffix: {
-      path: './icons',
+      path: 'assets/icons',
       noColor: true,
       suffix: 'color',
     },
   },
-  output: 'dist/icons', // @default 'node_modules/.unplugin-iconify'
-  iconifyIntelliSense: true, // @default false
+
+  /**
+   * 输出目录
+   * @default 'node_modules/.unplugin-iconify'
+   */
+  output: 'dist/icons',
+
+  /**
+   * 是否适配 VSCode 插件 Iconify IntelliSense
+   *
+   * @default false
+   */
+  iconifyIntelliSense: true,
 })
 ```
 
-- 如果开启 `iconifyIntelliSense`，将自动创建/更新 `.vscode/settings.json` 文件，用于 VSCode 插件 [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify)
+- 如果开启 `iconifyIntelliSense`将自动创建/更新 `.vscode/settings.json` 文件，用于 VSCode 插件 [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify)
 
-- `convert` 选项用于将图标转换为图标集，请查看 `src/core/types.ts` 获取更多类型信息。
+- 请查看 [`src/core/types.ts`](https://github.com/waset/unplugin-iconify/blob/main/src/core/types.ts) 获取更多类型信息。
 
-## Usage
+## 使用
+
+#### 脚手架
 
 <details>
 <summary>Vite</summary>
@@ -73,7 +92,7 @@ export default defineNuxtConfig({
 </details>
 
 <details>
-<summary>unocss</summary>
+<summary>Unocss</summary>
 
 ```ts
 // uno.config.ts
@@ -91,7 +110,7 @@ export default defineConfig({
         'vertical-align': 'middle',
       },
       collections: {
-        ...UnocssLoader(),
+        ...UnocssLoader(/** output */),
       },
     }),
   ],

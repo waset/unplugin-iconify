@@ -15,21 +15,21 @@
     "url": "https://github.com/waset/unplugin-iconify/issues"
   },
   "keywords": [
+    "astro",
+    "esbuild",
+    "farm",
     "icon",
     "iconify",
     "icons",
+    "loader",
     "nuxt",
     "rollup",
+    "rspack",
     "transform",
+    "unocss",
     "unplugin",
     "vite",
-    "webpack",
-    "astro",
-    "esbuild",
-    "rspack",
-    "loader",
-    "farm",
-    "unocss"
+    "webpack"
   ],
   "exports": {
     ".": {
@@ -41,6 +41,10 @@
       "import": "./dist/astro.js",
       "require": "./dist/astro.cjs"
     },
+    "./env": {
+      "import": "./dist/env.js",
+      "require": "./dist/env.cjs"
+    },
     "./esbuild": {
       "import": "./dist/esbuild.js",
       "require": "./dist/esbuild.cjs"
@@ -48,6 +52,10 @@
     "./farm": {
       "import": "./dist/farm.js",
       "require": "./dist/farm.cjs"
+    },
+    "./loader": {
+      "import": "./dist/loader.js",
+      "require": "./dist/loader.cjs"
     },
     "./nuxt": {
       "import": "./dist/nuxt.js",
@@ -72,10 +80,6 @@
     "./webpack": {
       "import": "./dist/webpack.js",
       "require": "./dist/webpack.cjs"
-    },
-    "./loader": {
-      "import": "./dist/loader.js",
-      "require": "./dist/loader.cjs"
     }
   },
   "main": "dist/index.cjs",

@@ -1,4 +1,5 @@
 import type { Convert, Loaders, Optional, Options } from './types'
+import { OUTPUT } from '../env'
 import { getOutputFiles, UnocssLoader } from '../loader'
 import { Generateds } from './convert'
 import { IconifyIntelliSenseSettings } from './vscode'
@@ -15,7 +16,7 @@ export class Iconify {
    * @description 统一管理默认值，避免使用 `if` 判断
    */
   defaultOptions: Optional<Options> = {
-    output: 'node_modules/.unplugin-iconify',
+    output: OUTPUT,
     iconifyIntelliSense: false,
     convert: {},
   }
