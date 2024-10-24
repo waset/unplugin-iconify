@@ -1,6 +1,6 @@
 import type { CustomIconLoader } from './core/types'
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
-import { join } from 'node:path'
+import { basename, join } from 'node:path'
 import { cwd } from 'node:process'
 import { OUTPUT } from './env'
 
@@ -13,7 +13,7 @@ export function UnocssLoader(dir: string = OUTPUT): Record<string, CustomIconLoa
   const jsons = getOutputFiles(dir)
   const icons: Record<string, CustomIconLoader> = {}
   jsons.forEach((file) => {
-    const name = file.replace('.json', '')
+    const name = basename(file).replace('.json', '')
     icons[name] = () => JSON.parse(readFileSync(file, 'utf-8'))
   })
 
@@ -33,5 +33,5 @@ export function getOutputFiles(dir: string = OUTPUT): string[] {
 
   const files = readdirSync(srcDir).filter(file => file.endsWith('.json'))
 
-  return files.map(file => join(srcDir, file))
+  return files.map(file => join(dir, file))
 }
