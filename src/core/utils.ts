@@ -1,5 +1,5 @@
 import type { FormattingOptions } from 'jsonc-parser'
-import { applyEdits, modify } from 'jsonc-parser'
+import * as jsonc from 'jsonc-parser'
 
 /**
  * 更新 json 指定 key 的值
@@ -10,7 +10,7 @@ import { applyEdits, modify } from 'jsonc-parser'
 export function injectJsonc(content: string, key: string, value: any): string | NodeJS.ArrayBufferView {
   const formatting = detectIndentation(content)
 
-  const edits = modify(
+  const edits = jsonc.modify(
     content,
     toArray(key),
     value,
@@ -23,7 +23,7 @@ export function injectJsonc(content: string, key: string, value: any): string | 
     },
   )
 
-  const updatedcontent = applyEdits(content, edits)
+  const updatedcontent = jsonc.applyEdits(content, edits)
 
   return updatedcontent
 }

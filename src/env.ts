@@ -1,1 +1,1 @@
-export const OUTPUT = 'node_modules/.unplugin-iconify'
+export const OUTPUT = './node_modules/.unplugin-iconify'

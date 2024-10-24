@@ -11,6 +11,9 @@ importers:
       '@farmfe/core':
         specifier: '>=1'
         version: 1.3.29
+      '@iconify/tools':
+        specifier: ^4.0.7
+        version: 4.0.7
       esbuild:
         specifier: '*'
         version: 0.23.1
@@ -24,9 +27,6 @@ importers:
       '@antfu/eslint-config':
         specifier: ^3.8.0
         version: 3.8.0(@typescript-eslint/utils@8.9.0(eslint@9.13.0(jiti@2.3.3))(typescript@5.6.3))(@vue/compiler-sfc@3.4.38)(eslint@9.13.0(jiti@2.3.3))(typescript@5.6.3)(vitest@2.1.3(@types/node@22.7.9)(terser@5.36.0))
-      '@iconify/tools':
-        specifier: ^4.0.7
-        version: 4.0.7
       '@nuxt/kit':
         specifier: ^3.13.2
         version: 3.13.2(rollup@4.24.0)(webpack-sources@3.2.3)

@@ -28,7 +28,6 @@ export function getOutputFiles(dir: string = OUTPUT): string[] {
   const srcDir = join(cwd(), dir)
 
   if (!existsSync(srcDir)) {
-    console.error(`\x1B[31m UnocssLoader: ${srcDir} not exists! \x1B[0m`)
     return []
   }
 
