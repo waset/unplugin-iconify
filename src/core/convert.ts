@@ -3,7 +3,7 @@ import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { cwd } from 'node:process'
 import { isEmptyColor, parseColors } from '@iconify/tools/lib/colors/parse'
-import { importDirectorySync } from '@iconify/tools/lib/import/directory'
+import { importDirectory } from '@iconify/tools/lib/import/directory'
 import { runSVGO } from '@iconify/tools/lib/optimise/svgo'
 import { cleanupSVG } from '@iconify/tools/lib/svg/cleanup'
 
@@ -38,7 +38,7 @@ export async function Generated(name: string, setting: string | Convert, output:
   }
 
   // Import icons
-  const iconSet = importDirectorySync(path, {
+  const iconSet = await importDirectory(path, {
     prefix: name,
     includeSubDirs: true,
     keyword: (_, name) => {
