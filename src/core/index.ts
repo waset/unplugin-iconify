@@ -75,7 +75,12 @@ export class Iconify {
    * 转换
    */
   async toConvert(): Promise<void> {
-    await Generateds(this.options)
+    try {
+      await Generateds(this.options)
+    }
+    catch (error) {
+      console.error('toConvert 出错了：', error)
+    }
   }
 
   /**
@@ -87,7 +92,12 @@ export class Iconify {
    * 获取输出文件
    */
   async toLoad(): Promise<void> {
-    this.outputs = getOutputFiles(this.options.output)
+    try {
+      this.outputs = getOutputFiles(this.options.output)
+    }
+    catch (error) {
+      console.error('toLoad 出错了：', error)
+    }
   }
 
   /**
