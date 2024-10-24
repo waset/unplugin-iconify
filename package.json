@@ -23,7 +23,13 @@
     "transform",
     "unplugin",
     "vite",
-    "webpack"
+    "webpack",
+    "astro",
+    "esbuild",
+    "rspack",
+    "loader",
+    "farm",
+    "unocss"
   ],
   "exports": {
     ".": {
@@ -66,6 +72,10 @@
     "./webpack": {
       "import": "./dist/webpack.js",
       "require": "./dist/webpack.cjs"
+    },
+    "./loader": {
+      "import": "./dist/loader.js",
+      "require": "./dist/loader.cjs"
     }
   },
   "main": "dist/index.cjs",
