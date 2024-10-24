@@ -17,9 +17,9 @@ export const unpluginFactory: UnpluginFactory<Options> = options => ({
     await handle.toConvert()
 
     /**
-     * 加载器加载图标
+     * 加载图标
      */
-    const _loaders = handle.getLoaders()
+    await handle.toLoad()
 
     /**
      * 生成 Iconify IntelliSense 配置

@@ -7,6 +7,10 @@ import { importDirectory } from '@iconify/tools/lib/import/directory'
 import { runSVGO } from '@iconify/tools/lib/optimise/svgo'
 import { cleanupSVG } from '@iconify/tools/lib/svg/cleanup'
 
+const SUCCESS_COLOR = '\x1B[32m'
+const RESET_COLOR = '\x1B[0m'
+const NUMBER_COLOR = '\x1B[31m'
+
 /**
  * 转换多个图表集
  * @param options 转换配置
@@ -15,12 +19,13 @@ export async function Generateds(options: Required<Options>): Promise<void> {
   if (!options.convert) {
     throw new Error('No convert option')
   }
+
   for (const key in options.convert) {
     await Generated(key, options.convert[key], options.output)
   }
 
   // eslint-disable-next-line no-console
-  console.log(`\n\x1B[32m Converted \x1B[0m \x1B[31m ${Object.keys(options.convert).length} \x1B[0m \x1B[32m collections \x1B[0m`)
+  console.log(`\n${SUCCESS_COLOR} Converted${RESET_COLOR} ${NUMBER_COLOR}${Object.keys(options.convert).length}${RESET_COLOR} ${SUCCESS_COLOR}collections${RESET_COLOR}`)
 }
 
 /**
@@ -95,5 +100,5 @@ export async function Generated(name: string, setting: string | Convert, output:
   writeFileSync(`${out_dir}/${iconSet.prefix}.json`, exported, 'utf8')
 
   // eslint-disable-next-line no-console
-  console.log(`\x1B[32m Imported ${name}: \x1B[0m \x1B[31m ${Object.keys(iconSet.entries).length} \x1B[0m`)
+  console.log(`${SUCCESS_COLOR} Imported ${name}: ${RESET_COLOR}${NUMBER_COLOR}${Object.keys(iconSet.entries).length}${RESET_COLOR}`)
 }
