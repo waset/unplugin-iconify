@@ -14,9 +14,6 @@ importers:
       '@iconify/tools':
         specifier: ^4.0.7
         version: 4.0.7
-      '@types/node':
-        specifier: ^22.7.6
-        version: 22.7.9
       esbuild:
         specifier: '*'
         version: 0.23.1
@@ -36,6 +33,9 @@ importers:
       '@nuxt/schema':
         specifier: ^3.13.2
         version: 3.13.2(rollup@4.24.0)(webpack-sources@3.2.3)
+      '@types/node':
+        specifier: ^22.7.6
+        version: 22.7.9
       bumpp:
         specifier: ^9.7.1
         version: 9.7.1
