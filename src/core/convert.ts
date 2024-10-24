@@ -26,11 +26,11 @@ export async function Generateds(options: Required<Options>): Promise<void> {
 /**
  * 转换单个图表集
  * @param name 图表集名称
- * @param stting 图表集路径或转换配置
+ * @param setting 图表集路径或转换配置
  * @param output 输出路径
  */
-export async function Generated(name: string, stting: string | Convert, output: string): Promise<void> {
-  const convert = typeof stting === 'string' ? { path: stting } : { ...stting }
+export async function Generated(name: string, setting: string | Convert, output: string): Promise<void> {
+  const convert = typeof setting === 'string' ? { path: setting } : { ...setting }
   const { path, noColor, suffix } = convert
 
   if (!existsSync(path)) {
