@@ -13,7 +13,7 @@ export default defineConfig({
         },
         icon: './icons',
       },
-      iconifyIntelliSense: true,
+      iconifyIntelliSense: '../.vscode',
     }),
   ],
 })

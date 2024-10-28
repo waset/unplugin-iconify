@@ -116,6 +116,12 @@ export class Iconify {
    * 生成 Iconify IntelliSense 配置
    */
   async toIntelliSense(): Promise<void> {
-    await IconifyIntelliSenseSettings(this.outputs)
+    if (!this.options.iconifyIntelliSense) {
+      return
+    }
+    await IconifyIntelliSenseSettings(
+      this.options.iconifyIntelliSense,
+      this.outputs,
+    )
   }
 }

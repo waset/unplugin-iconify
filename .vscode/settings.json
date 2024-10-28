@@ -12,5 +12,12 @@
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.formatOnSave": false,
   "eslint.format.enable": true,
-  "eslint.useFlatConfig": true
+  "eslint.useFlatConfig": true,
+  "iconify.customCollectionJsonPaths": [
+    "node_modules/.unplugin-iconify/icon.json",
+    "node_modules/.unplugin-iconify/svg.json"
+  ],
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  }
 }

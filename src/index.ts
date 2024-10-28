@@ -24,9 +24,7 @@ export const unpluginFactory: UnpluginFactory<Options> = options => ({
     /**
      * 生成 Iconify IntelliSense 配置
      */
-    if (options.iconifyIntelliSense) {
-      await handle.toIntelliSense()
-    }
+    await handle.toIntelliSense()
   },
 })
 
