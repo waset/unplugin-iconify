@@ -16,12 +16,11 @@ export async function IconifyIntelliSenseSettings(dir: string, jsons: string[]):
   // 判断文件是否存在
   const settingPath = join(dir, 'settings.json')
   if (!existsSync(settingPath)) {
-    writeFileSync(settingPath, '{}')
+    writeFileSync(settingPath, '{}', { encoding: 'utf-8' })
   }
   // 生成配置
   const settingText = readFileSync(settingPath, 'utf-8')
   // 写入配置
-  writeFileSync(settingPath, injectJsonc(settingText, 'iconify.customCollectionJsonPaths', jsons), {
-    encoding: 'utf-8',
-  })
+  const newContent = injectJsonc(settingText, 'iconify.customCollectionJsonPaths', jsons)
+  writeFileSync(settingPath, newContent, { encoding: 'utf-8' })
 }

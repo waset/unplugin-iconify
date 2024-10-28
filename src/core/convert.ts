@@ -95,7 +95,7 @@ export async function Generated(name: string, setting: string | Convert, output:
   }
 
   // Save to file
-  writeFileSync(`${output}/${iconSet.prefix}.json`, exported, 'utf8')
+  writeFileSync(join(output, `${iconSet.prefix}.json`), exported, 'utf8')
 
   // eslint-disable-next-line no-console
   console.log(`${SUCCESS_COLOR} Imported ${name}: ${RESET_COLOR}${NUMBER_COLOR}${Object.keys(iconSet.entries).length}${RESET_COLOR}`)
