@@ -23,6 +23,13 @@ export interface Convert {
  */
 export interface Options {
   /**
+   * 工作区路径
+   * @description 项目根目录
+   * @default process.cwd()
+   */
+  workspace?: string
+
+  /**
    * 要转换的图表集
    *
    * @example
