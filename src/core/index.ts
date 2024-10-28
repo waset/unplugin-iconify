@@ -1,4 +1,6 @@
 import type { Convert, Loaders, Optional, Options } from './types'
+import { join } from 'node:path'
+import { cwd } from 'node:process'
 import { OUTPUT } from '../env'
 import { getOutputFiles, UnocssLoader } from '../loader'
 import { Generateds } from './convert'
@@ -16,6 +18,7 @@ export class Iconify {
    * @description 统一管理默认值，避免使用 `if` 判断
    */
   defaultOptions: Optional<Options> = {
+    workspace: cwd(),
     output: OUTPUT,
     iconifyIntelliSense: false,
     convert: {},
@@ -116,6 +119,24 @@ export class Iconify {
    * 生成 Iconify IntelliSense 配置
    */
   async toIntelliSense(): Promise<void> {
-    await IconifyIntelliSenseSettings(this.outputs)
+    // 如果未开启 IntelliSense，则直接返回
+    if (!this.options.iconifyIntelliSense) {
+      return
+    }
+    // 生成文件的文件路径
+    const paths = []
+    for (const dir of this.outputs) {
+      paths.push(dir.replace(`${this.options.workspace}/`, ''))
+    }
+    // 如果没有生成文件，则直接返回
+    if (!paths.length) {
+      return
+    }
+    // 生成 IntelliSense 配置文件
+    const dir = typeof this.options.iconifyIntelliSense === 'string' ? this.options.iconifyIntelliSense : '.vscode'
+    await IconifyIntelliSenseSettings(
+      join(this.options.workspace, dir),
+      paths,
+    )
   }
 }
