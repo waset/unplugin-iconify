@@ -1,7 +1,6 @@
 import type { Convert, Options } from './types'
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { cwd } from 'node:process'
 import { isEmptyColor, parseColors } from '@iconify/tools/lib/colors/parse'
 import { importDirectory } from '@iconify/tools/lib/import/directory'
 import { runSVGO } from '@iconify/tools/lib/optimise/svgo'
@@ -21,7 +20,7 @@ export async function Generateds(options: Required<Options>): Promise<void> {
   }
 
   for (const key in options.convert) {
-    await Generated(key, options.convert[key], options.output)
+    await Generated(key, options.convert[key], join(options.workspace, options.output))
   }
 
   // eslint-disable-next-line no-console
@@ -91,13 +90,12 @@ export async function Generated(name: string, setting: string | Convert, output:
   const exported = `${JSON.stringify(iconSet.export(), null, '\t')}\n`
 
   // 构建 manifest 文件路径
-  const out_dir = join(cwd(), output)
-  if (!existsSync(out_dir)) {
-    mkdirSync(out_dir, { recursive: true })
+  if (!existsSync(output)) {
+    mkdirSync(output, { recursive: true })
   }
 
   // Save to file
-  writeFileSync(`${out_dir}/${iconSet.prefix}.json`, exported, 'utf8')
+  writeFileSync(`${output}/${iconSet.prefix}.json`, exported, 'utf8')
 
   // eslint-disable-next-line no-console
   console.log(`${SUCCESS_COLOR} Imported ${name}: ${RESET_COLOR}${NUMBER_COLOR}${Object.keys(iconSet.entries).length}${RESET_COLOR}`)
