@@ -22,7 +22,7 @@ importers:
         version: 3.3.1
       unplugin:
         specifier: ^1.14.1
-        version: 1.14.1(webpack-sources@3.2.3)
+        version: 1.15.0(webpack-sources@3.2.3)
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^3.8.0
@@ -1417,6 +1417,11 @@ packages:
 
   acorn@8.13.0:
     resolution: {integrity: sha512-8zSiw54Oxrdym50NlZ9sUusyO1Z1ZchgRLWRaK6c86XJFClyCgFKetdowBg5bKxyp/u+CDBJG4Mpp0m3HLZl9w==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+
+  acorn@8.14.0:
+    resolution: {integrity: sha512-cl669nCJTZBsL97OF4kUQm5g5hC2uihk0NxY3WENAC0TYdILVkAyHymAntgxGkl7K+t0cXIrH5siy5S4XkFycA==}
     engines: {node: '>=0.4.0'}
     hasBin: true
 
@@ -3875,6 +3880,15 @@ packages:
       webpack-sources:
         optional: true
 
+  unplugin@1.15.0:
+    resolution: {integrity: sha512-jTPIs63W+DUEDW207ztbaoO7cQ4p5aVaB823LSlxpsFEU3Mykwxf3ZGC/wzxFJeZlASZYgVrWeo7LgOrqJZ8RA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      webpack-sources: ^3
+    peerDependenciesMeta:
+      webpack-sources:
+        optional: true
+
   untildify@4.0.0:
     resolution: {integrity: sha512-KK8xQ1mkzZeg9inewmFVDNkg3l5LUhoq9kN6iWYB/CC9YMG8HA+c1Q8HwDe6dEX7kErrEVNVBO3fWsVq5iDgtw==}
     engines: {node: '>=8'}
@@ -5448,7 +5462,13 @@ snapshots:
     dependencies:
       acorn: 8.13.0
 
+  acorn-jsx@5.3.2(acorn@8.14.0):
+    dependencies:
+      acorn: 8.14.0
+
   acorn@8.13.0: {}
+
+  acorn@8.14.0: {}
 
   ajv-keywords@3.5.2(ajv@6.12.6):
     dependencies:
@@ -6299,8 +6319,8 @@ snapshots:
 
   espree@9.6.1:
     dependencies:
-      acorn: 8.13.0
-      acorn-jsx: 5.3.2(acorn@8.13.0)
+      acorn: 8.14.0
+      acorn-jsx: 5.3.2(acorn@8.14.0)
       eslint-visitor-keys: 3.4.3
 
   esprima@4.0.1: {}
@@ -8089,7 +8109,7 @@ snapshots:
       acorn: 8.13.0
       estree-walker: 3.0.3
       magic-string: 0.30.12
-      unplugin: 1.14.1(webpack-sources@3.2.3)
+      unplugin: 1.15.0(webpack-sources@3.2.3)
     transitivePeerDependencies:
       - webpack-sources
 
@@ -8115,7 +8135,7 @@ snapshots:
       pkg-types: 1.2.1
       scule: 1.3.0
       strip-literal: 2.1.0
-      unplugin: 1.14.1(webpack-sources@3.2.3)
+      unplugin: 1.15.0(webpack-sources@3.2.3)
     transitivePeerDependencies:
       - rollup
       - webpack-sources
@@ -8146,6 +8166,13 @@ snapshots:
   unplugin@1.14.1(webpack-sources@3.2.3):
     dependencies:
       acorn: 8.13.0
+      webpack-virtual-modules: 0.6.2
+    optionalDependencies:
+      webpack-sources: 3.2.3
+
+  unplugin@1.15.0(webpack-sources@3.2.3):
+    dependencies:
+      acorn: 8.14.0
       webpack-virtual-modules: 0.6.2
     optionalDependencies:
       webpack-sources: 3.2.3
