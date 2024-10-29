@@ -1,6 +1,7 @@
 import type { Convert, Options } from './types'
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { removeFigmaClipPathFromSVG, scaleSVG } from '@iconify/tools'
 import { isEmptyColor, parseColors } from '@iconify/tools/lib/colors/parse'
 import { importDirectory } from '@iconify/tools/lib/import/directory'
 import { runSVGO } from '@iconify/tools/lib/optimise/svgo'
@@ -36,7 +37,6 @@ export async function Generateds(options: Required<Options>): Promise<void> {
 export async function Generated(name: string, setting: string | Convert, output: string): Promise<void> {
   const convert = typeof setting === 'string' ? { path: setting } : { ...setting }
   const { path, noColor, suffix } = convert
-
   if (!existsSync(path)) {
     throw new Error(`Path ${path} does not exist`)
   }
@@ -51,7 +51,7 @@ export async function Generated(name: string, setting: string | Convert, output:
   })
 
   // Validate, clean up, fix palette and optimise
-  iconSet.forEach(async (name, type) => {
+  iconSet.forEachSync((name, type) => {
     if (type !== 'icon')
       return
 
@@ -65,6 +65,8 @@ export async function Generated(name: string, setting: string | Convert, output:
     // Clean up and optimise icons
     try {
       cleanupSVG(svg)
+      removeFigmaClipPathFromSVG(svg)
+      scaleSVG(svg, 1 / 48)
       noColor && parseColors(svg, {
         defaultColor: 'currentColor',
         callback: (attr, colorStr, color) => {
@@ -81,9 +83,9 @@ export async function Generated(name: string, setting: string | Convert, output:
       iconSet.remove(name)
       return
     }
-
     // Update icon
     iconSet.fromSVG(name, svg)
+    iconSet.resolve(name)
   })
 
   // Export as IconifyJSON

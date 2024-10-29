@@ -8,4 +8,8 @@ export default antfu({
       warnOnUnsupportedTypeScriptVersion: false,
     },
   },
+  vue: true,
+  rules: {
+    'no-unused-vars': 'warn',
+  },
 })
