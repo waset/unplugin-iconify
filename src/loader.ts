@@ -1,7 +1,6 @@
 import type { CustomIconLoader } from './core/types'
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { basename, join } from 'node:path'
-import { cwd } from 'node:process'
 import { OUTPUT } from './env'
 
 /**
@@ -30,5 +29,5 @@ export function getOutputFiles(dir: string = OUTPUT): string[] {
 
   const files = readdirSync(dir).filter(file => file.endsWith('.json'))
 
-  return files.map(file => join(srcDir, file))
+  return files.map(file => join(dir, file))
 }
