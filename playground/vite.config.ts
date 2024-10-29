@@ -16,6 +16,7 @@ export default defineConfig({
         },
         svg: './icons',
       },
+      output: './playground/node_modules/.unplugin-iconify',
       iconifyIntelliSense: true,
     }),
   ],
