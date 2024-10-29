@@ -30,5 +30,5 @@ export function getOutputFiles(dir: string = OUTPUT): string[] {
 
   const files = readdirSync(dir).filter(file => file.endsWith('.json'))
 
-  return files.map(file => join(dir, file))
+  return files.map(file => join(srcDir, file))
 }

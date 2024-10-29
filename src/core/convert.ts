@@ -21,7 +21,7 @@ export async function Generateds(options: Required<Options>): Promise<void> {
   }
 
   for (const key in options.convert) {
-    await Generated(key, options.convert[key], options.output)
+    await Generated(key, options.convert[key], join(options.workspace, options.output))
   }
 
   // eslint-disable-next-line no-console
