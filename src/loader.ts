@@ -24,14 +24,11 @@ export function UnocssLoader(dir: string = OUTPUT): Record<string, CustomIconLoa
  * 获取所有输出文件
  */
 export function getOutputFiles(dir: string = OUTPUT): string[] {
-  // 构建 manifest 文件路径
-  const srcDir = join(cwd(), dir)
-
-  if (!existsSync(srcDir)) {
+  if (!existsSync(dir)) {
     return []
   }
 
-  const files = readdirSync(srcDir).filter(file => file.endsWith('.json'))
+  const files = readdirSync(dir).filter(file => file.endsWith('.json'))
 
-  return files.map(file => join(srcDir, file))
+  return files.map(file => join(dir, file))
 }
