@@ -10,13 +10,21 @@ export default defineConfig({
     Iconify({
       workspace: join(cwd(), '..'),
       convert: {
+        // 直接导出目录
+        svg: './icons',
+        // 不导出颜色
         icon: {
           path: './icons',
           noColor: true,
         },
-        svg: './icons',
+        // 不导出颜色且添加后缀
+        suffix: {
+          path: './icons',
+          noColor: true,
+          suffix: 'color',
+        },
       },
-      output: './playground/node_modules/.unplugin-iconify',
+      output: join(cwd(), '../playground/node_modules/.unplugin-iconify'),
       iconifyIntelliSense: true,
     }),
   ],
