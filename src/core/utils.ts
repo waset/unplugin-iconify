@@ -55,3 +55,22 @@ export function toArray<T>(array?: T | T[]): T[] {
   array = array ?? []
   return Array.isArray(array) ? array : [array]
 }
+
+/**
+ * 获取相对路径
+ * @param path 文件路径
+ * @param workspace 工作区路径
+ * @returns 相对路径
+ */
+export function normalizePath(path: string, workspace: string): string {
+  // 统一使用正斜杠
+  path = path.replace(/\\/g, '/')
+  workspace = workspace.replace(/\\/g, '/')
+
+  // 移除工作区前缀
+  if (path.startsWith(workspace))
+    path = path.replace(workspace, '')
+
+  // 清理首尾的斜杠
+  return path.replace(/^\/+|\/+$/g, '')
+}

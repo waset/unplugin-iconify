@@ -52,7 +52,7 @@ export interface Options {
   /**
    * 生成的类型文件的输出目录。
    *
-   * @default process.join(process.cwd(), 'node_modules/.unplugin-iconify')
+   * @default path.join(process.cwd(), 'node_modules/.unplugin-iconify')
    */
   output?: string
 

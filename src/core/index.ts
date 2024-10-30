@@ -5,6 +5,7 @@ import { cwd } from 'node:process'
 import { OUTPUT } from '../env'
 import { getOutputFiles, UnocssLoader } from '../loader'
 import { Generateds } from './convert'
+import { normalizePath } from './utils'
 import { IconifyIntelliSenseSettings } from './vscode'
 
 export class Iconify {
@@ -128,20 +129,9 @@ export class Iconify {
     const paths = []
     for (const dir of this.outputs) {
       if (!existsSync(dir)) {
-        return
+        continue
       }
-      const workspace = this.options.workspace.replace(/\\/g, '/')
-      let path = dir.replace(/\\/g, '/')
-      if (path.startsWith(workspace)) {
-        path = path.replace(workspace, '')
-      }
-      if (path.startsWith('/')) {
-        path = path.slice(1)
-      }
-      if (path.endsWith('/')) {
-        path = path.slice(0, -1)
-      }
-      paths.push(path)
+      paths.push(normalizePath(dir, this.options.workspace))
     }
 
     // 如果没有生成文件，则直接返回

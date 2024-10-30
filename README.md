@@ -40,7 +40,7 @@ Iconify({
   /**
    * 输出目录
    * @type string
-   * @default `process.join(process.cwd(), 'node_modules/.unplugin-iconify')`
+   * @default `path.join(process.cwd(), 'node_modules/.unplugin-iconify')`
    */
   output: 'dist/icons',
 
