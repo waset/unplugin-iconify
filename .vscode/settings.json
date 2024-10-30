@@ -15,6 +15,7 @@
   "eslint.useFlatConfig": true,
   "iconify.customCollectionJsonPaths": [
     "playground/node_modules/.unplugin-iconify/icon.json",
+    "playground/node_modules/.unplugin-iconify/suffix.json",
     "playground/node_modules/.unplugin-iconify/svg.json"
   ],
   "[svg]": {

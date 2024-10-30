@@ -1,4 +1,5 @@
 import type { Convert, Loaders, Optional, Options } from './types'
+import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { cwd } from 'node:process'
 import { OUTPUT } from '../env'
@@ -19,7 +20,7 @@ export class Iconify {
    */
   defaultOptions: Optional<Options> = {
     workspace: cwd(),
-    output: OUTPUT,
+    output: join(cwd(), OUTPUT),
     iconifyIntelliSense: false,
     convert: {},
   }
@@ -126,12 +127,28 @@ export class Iconify {
     // 生成文件的文件路径
     const paths = []
     for (const dir of this.outputs) {
-      paths.push(dir.replace(`${this.options.workspace}/`, ''))
+      if (!existsSync(dir)) {
+        return
+      }
+      const workspace = this.options.workspace.replace(/\\/g, '/')
+      let path = dir.replace(/\\/g, '/')
+      if (path.startsWith(workspace)) {
+        path = path.replace(workspace, '')
+      }
+      if (path.startsWith('/')) {
+        path = path.slice(1)
+      }
+      if (path.endsWith('/')) {
+        path = path.slice(0, -1)
+      }
+      paths.push(path)
     }
+
     // 如果没有生成文件，则直接返回
     if (!paths.length) {
       return
     }
+
     // 生成 IntelliSense 配置文件
     const dir = typeof this.options.iconifyIntelliSense === 'string' ? this.options.iconifyIntelliSense : '.vscode'
     await IconifyIntelliSenseSettings(

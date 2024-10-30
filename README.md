@@ -13,13 +13,19 @@ pnpm i -D @waset/unplugin-iconify
 ```ts
 Iconify({
   /**
+   * 工作区路径
+   * @description 项目根目录
+   * @default process.cwd()
+   */
+  workspace: cwd(),
+  /**
    * 图标转换配置
    */
   convert: {
     // 直接导出目录
-    icon: 'assets/icons',
+    svg: 'assets/icons',
     // 不导出颜色
-    svg: {
+    icon: {
       path: 'assets/icons',
       noColor: true,
     },
@@ -33,13 +39,14 @@ Iconify({
 
   /**
    * 输出目录
-   * @default 'node_modules/.unplugin-iconify'
+   * @type string
+   * @default `process.join(process.cwd(), 'node_modules/.unplugin-iconify')`
    */
   output: 'dist/icons',
 
   /**
    * 是否适配 VSCode 插件 Iconify IntelliSense
-   *
+   * @type boolean | string
    * @default false
    */
   iconifyIntelliSense: true,
