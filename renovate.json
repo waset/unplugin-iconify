@@ -1,7 +1,14 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "commitMessagePrefix": "deps:",
   "extends": [
-    "config:recommended"
-  ],
-  "commitMessagePrefix": "deps"
+    ":automergeStableNonMajor",
+    ":preserveSemverRanges",
+    "config:recommended",
+    "group:allNonMajor",
+    "group:recommended",
+    "npm:unpublishSafe",
+    "schedule:automergeMonthly",
+    "schedule:monthly"
+  ]
 }
