@@ -59,13 +59,13 @@ importers:
         version: 4.24.3
       tsup:
         specifier: ^8.3.0
-        version: 8.3.5(jiti@2.3.3)(postcss@8.4.47)(tsx@4.19.1)(typescript@5.6.3)(yaml@2.6.0)
+        version: 8.3.5(jiti@2.3.3)(postcss@8.4.49)(tsx@4.19.1)(typescript@5.6.3)(yaml@2.6.0)
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
       vite:
-        specifier: ^5.4.9
-        version: 5.4.10(@types/node@22.8.4)(terser@5.36.0)
+        specifier: ^6.0.0
+        version: 6.0.1(@types/node@22.8.4)(jiti@2.3.3)(terser@5.36.0)(tsx@4.19.1)(yaml@2.6.0)
       vitest:
         specifier: ^2.1.3
         version: 2.1.4(@types/node@22.8.4)(terser@5.36.0)
@@ -77,13 +77,13 @@ importers:
     devDependencies:
       '@waset/unplugin-iconify':
         specifier: latest
-        version: 1.2.0(@farmfe/core@1.3.29)(@nuxt/kit@3.13.2(rollup@4.24.3)(webpack-sources@3.2.3))(@nuxt/schema@3.13.2(rollup@4.24.3)(webpack-sources@3.2.3))(esbuild@0.24.0)(rollup@4.24.3)(vite@5.4.10(@types/node@22.8.4)(terser@5.36.0))(webpack-sources@3.2.3)(webpack@5.95.0(esbuild@0.24.0))
+        version: 1.3.0(@farmfe/core@1.3.29)(@nuxt/kit@3.13.2(rollup@4.24.3)(webpack-sources@3.2.3))(@nuxt/schema@3.13.2(rollup@4.24.3)(webpack-sources@3.2.3))(esbuild@0.24.0)(rollup@4.24.3)(vite@6.0.1(@types/node@22.8.4)(jiti@2.3.3)(terser@5.36.0)(tsx@4.19.1)(yaml@2.6.0))(webpack-sources@3.2.3)(webpack@5.95.0(esbuild@0.24.0))
       vite:
-        specifier: ^5.4.2
-        version: 5.4.10(@types/node@22.8.4)(terser@5.36.0)
+        specifier: ^6.0.0
+        version: 6.0.1(@types/node@22.8.4)(jiti@2.3.3)(terser@5.36.0)(tsx@4.19.1)(yaml@2.6.0)
       vite-plugin-inspect:
         specifier: ^0.8.7
-        version: 0.8.7(@nuxt/kit@3.13.2(rollup@4.24.3)(webpack-sources@3.2.3))(rollup@4.24.3)(vite@5.4.10(@types/node@22.8.4)(terser@5.36.0))
+        version: 0.8.7(@nuxt/kit@3.13.2(rollup@4.24.3)(webpack-sources@3.2.3))(rollup@4.24.3)(vite@6.0.1(@types/node@22.8.4)(jiti@2.3.3)(terser@5.36.0)(tsx@4.19.1)(yaml@2.6.0))
 
 packages:
 
@@ -1324,8 +1324,8 @@ packages:
   '@vue/shared@3.4.38':
     resolution: {integrity: sha512-q0xCiLkuWWQLzVrecPb0RMsNWyxICOjPrcrwxTUEHb1fsnvni4dcuyG7RT/Ie7VPTvnjzIaWzRMUBsrqNj/hhw==}
 
-  '@waset/unplugin-iconify@1.2.0':
-    resolution: {integrity: sha512-hNOZ0ro3L7y0UpDqrHY+3FSMxHQwur6ngJBS5Dncha14OWEaAL1yd3sbzIivkHUGg23sTmTyrEhEtsJ4Kf9WRg==}
+  '@waset/unplugin-iconify@1.3.0':
+    resolution: {integrity: sha512-Fo1zgy8FlS3ZTXgRDN7fQGYPVvOsIZqwEUI4ssd3XCIPCKbqBc5sCaYYfWsF050QdnFiW22UOX8JXXcUtxUkNg==}
     peerDependencies:
       '@farmfe/core': '>=1'
       '@nuxt/kit': ^3
@@ -3307,6 +3307,10 @@ packages:
     resolution: {integrity: sha512-56rxCq7G/XfB4EkXq9Egn5GCqugWvDFjafDOThIdMBsI15iqPqR5r15TfSr1YPYeEI19YeaXMCbY6u88Y76GLQ==}
     engines: {node: ^10 || ^12 || >=14}
 
+  postcss@8.4.49:
+    resolution: {integrity: sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==}
+    engines: {node: ^10 || ^12 || >=14}
+
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -3960,6 +3964,46 @@ packages:
       sugarss:
         optional: true
       terser:
+        optional: true
+
+  vite@6.0.1:
+    resolution: {integrity: sha512-Ldn6gorLGr4mCdFnmeAOLweJxZ34HjKnDm4HGo6P66IEqTxQb36VEdFJQENKxWjupNfoIjvRUnswjn1hpYEpjQ==}
+    engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || ^20.0.0 || >=22.0.0
+      jiti: '>=1.21.0'
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      sass-embedded: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.16.0
+      tsx: ^4.8.1
+      yaml: ^2.4.2
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      jiti:
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      sass-embedded:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+      tsx:
+        optional: true
+      yaml:
         optional: true
 
   vitest@2.1.4:
@@ -5351,7 +5395,7 @@ snapshots:
 
   '@vue/shared@3.4.38': {}
 
-  '@waset/unplugin-iconify@1.2.0(@farmfe/core@1.3.29)(@nuxt/kit@3.13.2(rollup@4.24.3)(webpack-sources@3.2.3))(@nuxt/schema@3.13.2(rollup@4.24.3)(webpack-sources@3.2.3))(esbuild@0.24.0)(rollup@4.24.3)(vite@5.4.10(@types/node@22.8.4)(terser@5.36.0))(webpack-sources@3.2.3)(webpack@5.95.0(esbuild@0.24.0))':
+  '@waset/unplugin-iconify@1.3.0(@farmfe/core@1.3.29)(@nuxt/kit@3.13.2(rollup@4.24.3)(webpack-sources@3.2.3))(@nuxt/schema@3.13.2(rollup@4.24.3)(webpack-sources@3.2.3))(esbuild@0.24.0)(rollup@4.24.3)(vite@6.0.1(@types/node@22.8.4)(jiti@2.3.3)(terser@5.36.0)(tsx@4.19.1)(yaml@2.6.0))(webpack-sources@3.2.3)(webpack@5.95.0(esbuild@0.24.0))':
     dependencies:
       '@iconify/tools': 4.0.7
       jsonc-parser: 3.3.1
@@ -5362,7 +5406,7 @@ snapshots:
       '@nuxt/schema': 3.13.2(rollup@4.24.3)(webpack-sources@3.2.3)
       esbuild: 0.24.0
       rollup: 4.24.3
-      vite: 5.4.10(@types/node@22.8.4)(terser@5.36.0)
+      vite: 6.0.1(@types/node@22.8.4)(jiti@2.3.3)(terser@5.36.0)(tsx@4.19.1)(yaml@2.6.0)
       webpack: 5.95.0(esbuild@0.24.0)
     transitivePeerDependencies:
       - debug
@@ -7580,12 +7624,12 @@ snapshots:
 
   pluralize@8.0.0: {}
 
-  postcss-load-config@6.0.1(jiti@2.3.3)(postcss@8.4.47)(tsx@4.19.1)(yaml@2.6.0):
+  postcss-load-config@6.0.1(jiti@2.3.3)(postcss@8.4.49)(tsx@4.19.1)(yaml@2.6.0):
     dependencies:
       lilconfig: 3.1.2
     optionalDependencies:
       jiti: 2.3.3
-      postcss: 8.4.47
+      postcss: 8.4.49
       tsx: 4.19.1
       yaml: 2.6.0
 
@@ -7595,6 +7639,12 @@ snapshots:
       util-deprecate: 1.0.2
 
   postcss@8.4.47:
+    dependencies:
+      nanoid: 3.3.7
+      picocolors: 1.1.1
+      source-map-js: 1.2.1
+
+  postcss@8.4.49:
     dependencies:
       nanoid: 3.3.7
       picocolors: 1.1.1
@@ -8045,7 +8095,7 @@ snapshots:
 
   tsscmp@1.0.6: {}
 
-  tsup@8.3.5(jiti@2.3.3)(postcss@8.4.47)(tsx@4.19.1)(typescript@5.6.3)(yaml@2.6.0):
+  tsup@8.3.5(jiti@2.3.3)(postcss@8.4.49)(tsx@4.19.1)(typescript@5.6.3)(yaml@2.6.0):
     dependencies:
       bundle-require: 5.0.0(esbuild@0.24.0)
       cac: 6.7.14
@@ -8055,7 +8105,7 @@ snapshots:
       esbuild: 0.24.0
       joycon: 3.1.1
       picocolors: 1.1.1
-      postcss-load-config: 6.0.1(jiti@2.3.3)(postcss@8.4.47)(tsx@4.19.1)(yaml@2.6.0)
+      postcss-load-config: 6.0.1(jiti@2.3.3)(postcss@8.4.49)(tsx@4.19.1)(yaml@2.6.0)
       resolve-from: 5.0.0
       rollup: 4.24.3
       source-map: 0.8.0-beta.0
@@ -8064,7 +8114,7 @@ snapshots:
       tinyglobby: 0.2.10
       tree-kill: 1.2.2
     optionalDependencies:
-      postcss: 8.4.47
+      postcss: 8.4.49
       typescript: 5.6.3
     transitivePeerDependencies:
       - jiti
@@ -8233,7 +8283,7 @@ snapshots:
       - supports-color
       - terser
 
-  vite-plugin-inspect@0.8.7(@nuxt/kit@3.13.2(rollup@4.24.3)(webpack-sources@3.2.3))(rollup@4.24.3)(vite@5.4.10(@types/node@22.8.4)(terser@5.36.0)):
+  vite-plugin-inspect@0.8.7(@nuxt/kit@3.13.2(rollup@4.24.3)(webpack-sources@3.2.3))(rollup@4.24.3)(vite@6.0.1(@types/node@22.8.4)(jiti@2.3.3)(terser@5.36.0)(tsx@4.19.1)(yaml@2.6.0)):
     dependencies:
       '@antfu/utils': 0.7.10
       '@rollup/pluginutils': 5.1.0(rollup@4.24.3)
@@ -8244,7 +8294,7 @@ snapshots:
       perfect-debounce: 1.0.0
       picocolors: 1.0.1
       sirv: 2.0.4
-      vite: 5.4.10(@types/node@22.8.4)(terser@5.36.0)
+      vite: 6.0.1(@types/node@22.8.4)(jiti@2.3.3)(terser@5.36.0)(tsx@4.19.1)(yaml@2.6.0)
     optionalDependencies:
       '@nuxt/kit': 3.13.2(rollup@4.24.3)(webpack-sources@3.2.3)
     transitivePeerDependencies:
@@ -8260,6 +8310,19 @@ snapshots:
       '@types/node': 22.8.4
       fsevents: 2.3.3
       terser: 5.36.0
+
+  vite@6.0.1(@types/node@22.8.4)(jiti@2.3.3)(terser@5.36.0)(tsx@4.19.1)(yaml@2.6.0):
+    dependencies:
+      esbuild: 0.24.0
+      postcss: 8.4.49
+      rollup: 4.24.3
+    optionalDependencies:
+      '@types/node': 22.8.4
+      fsevents: 2.3.3
+      jiti: 2.3.3
+      terser: 5.36.0
+      tsx: 4.19.1
+      yaml: 2.6.0
 
   vitest@2.1.4(@types/node@22.8.4)(terser@5.36.0):
     dependencies:
