@@ -1,5 +1,5 @@
 import type { Convert, Loaders, Optional, Options } from './types'
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { cwd } from 'node:process'
 import { OUTPUT } from '../env'
@@ -41,8 +41,32 @@ export class Iconify {
    * @param options Options
    */
   constructor(options: Options | undefined) {
-    this.options = { ...this.defaultOptions, ...options }
+    // 读取配置文件
+    const configFile = this.resolveConfigFile()
+    this.options = { ...this.defaultOptions, ...configFile, ...options }
     this.setOptions(this.options)
+  }
+
+  private resolveConfigFile(): Options {
+    const configFilePath = join(cwd(), 'iconify.config.json')
+    if (existsSync(configFilePath)) {
+      try {
+        const configContent = readFileSync(configFilePath, 'utf-8')
+        const configModule = JSON.parse(configContent)
+        // 假设导出的是一个对象
+        if (typeof configModule === 'object') {
+          return configModule
+        }
+        else {
+          throw new TypeError('The imported config is not an object')
+        }
+      }
+      catch (error) {
+        console.error(`Error importing ${configFilePath}:`, error)
+        throw error
+      }
+    }
+    return {} as Options
   }
 
   /**

@@ -93,6 +93,7 @@
       ]
     }
   },
+  "bin": "dist/bin/index.cjs",
   "files": [
     "dist"
   ],
