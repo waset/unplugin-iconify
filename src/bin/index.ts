@@ -6,7 +6,7 @@ import { Iconify } from '../core'
 /**
  * 初始化
  */
-const handle = new Iconify(undefined)
+const handle = new Iconify({})
 
 /**
  * 转换图标
