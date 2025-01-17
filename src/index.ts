@@ -3,32 +3,38 @@ import type { Options } from './core/types'
 import { createUnplugin } from 'unplugin'
 import { Iconify } from './core'
 
-export const unpluginFactory: UnpluginFactory<Options> = options => ({
-  name: 'unplugin-iconify',
-  buildStart: async () => {
-    /**
-     * 初始化
-     */
-    const handle = new Iconify(options)
+export { Iconify } from './core'
+export type { Options } from './core/types'
+export * from './loader'
 
-    /**
-     * 转换图标
-     */
-    await handle.toConvert()
+export const unpluginFactory: UnpluginFactory<Options | undefined> = (options) => {
+  /**
+   * 初始化
+   */
+  const handle = new Iconify(options)
 
-    /**
-     * 加载图标
-     */
-    await handle.toLoad()
+  return {
+    name: 'unplugin-iconify',
+    enforce: 'pre',
+    buildStart: async () => {
+      /**
+       * 转换图标
+       */
+      await handle.toConvert()
 
-    /**
-     * 生成 Iconify IntelliSense 配置
-     */
-    await handle.toIntelliSense()
-  },
-})
+      /**
+       * 加载图标
+       */
+      await handle.toLoad()
+
+      /**
+       * 生成 Iconify IntelliSense 配置
+       */
+      await handle.toIntelliSense()
+    },
+  }
+}
 
 export const unplugin = /* #__PURE__ */ createUnplugin(unpluginFactory)
 
 export default unplugin
-export type { Options } from './core/types'

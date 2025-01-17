@@ -40,7 +40,7 @@ export class Iconify {
    * 构造器
    * @param options Options
    */
-  constructor(options: Options) {
+  constructor(options: Options | undefined) {
     this.options = { ...this.defaultOptions, ...options }
     this.setOptions(this.options)
   }
