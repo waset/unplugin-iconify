@@ -141,7 +141,7 @@
     }
   },
   "dependencies": {
-    "@iconify/tools": "^4.0.7",
+    "@iconify/tools": "^5.0.0",
     "jsonc-parser": "^3.3.1",
     "unplugin": "^2.0.0"
   },
